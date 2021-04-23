@@ -27,39 +27,39 @@ and then restart Vim / Neovim and run `:PlugInstall`.
 
 Command                                  | Mapping                                      
 -----------------------------------------|----------------------------------------------
-`:CMakeGenerate [{Options} ...]`         | `call CMakeGenerate([{Options} ...])`        
-`:CMakeBuild [{Target}]`                 | `call CMakeBuild([{Target}])`                
-`:CMakeSelectExecutable`                 | `call CMakeSelectExecutable()`               
-`:CMakeRun [{Args} ...]`                 | `call CMakeRun([{Args} ...])`                
-`:CMakeBuldRun [{Target}, [{Args} ...]]` | `call CMakeBuldRun([{Target}, [{Args} ...]])`
-`:CMakeClearArguments`                   | `call CMakeSetRunArguments('')`              
+`:CMakeGenerate [{Options} ...]`         | `call cmake#Generate([{Options} ...])`        
+`:CMakeBuild [{Target}]`                 | `call cmake#Build([{Target}])`                
+`:CMakeSelectExecutable`                 | `call cmake#SelectExecutable()`               
+`:CMakeRun [{Args} ...]`                 | `call cmake#Run([{Args} ...])`                
+`:CMakeBuldRun [{Target}, [{Args} ...]]` | `call cmake#BuldRun([{Target}, [{Args} ...]])`
+`:CMakeClearArguments`                   | `call cmake#SetRunArguments('')`              
 `:CMakeConfig`                           | `e CMakeLists.txt`                           
 
 ### Functions
 
 Function                                      | Description
 ----------------------------------------------|------------
-`call CMakeGenerate([{Options} ...])`         | Generate the build directory
-`call CMakeBuild([{Target}])`                 | Build the project
-`call CMakeSelectExecutable()`                | Select the executable target to run
-`call CMakeRun([{Args} ...])`                 | Run the selected executable
-`call CMakeBuldRun([{Target}, [{Args} ...]])` | Build and Run
-`call CMakeSetRunArguments([{Args} ...])`     | Set or clear the cached arguments to Run
+`call cmake#Generate([{Options} ...])`         | Generate the build directory
+`call cmake#Build([{Target}])`                 | Build the project
+`call cmake#SelectExecutable()`                | Select the executable target to run
+`call cmake#Run([{Args} ...])`                 | Run the selected executable
+`call cmake#BuldRun([{Target}, [{Args} ...]])` | Build and Run
+`call cmake#SetRunArguments([{Args} ...])`     | Set or clear the cached arguments to Run
 
-`call CMakeGenerate([{Options} ...])` takes an optional list of options for the
+`call cmake#Generate([{Options} ...])` takes an optional list of options for the
 `cmake` command. These are appended to the default options set by
 `g:cmake_generate_options`.
 
-`call CMakeBuild([{Target}])` takes an optional target. If none is provided
+`call cmake#Build([{Target}])` takes an optional target. If none is provided
 then the whole project is built.
 
-`call CMakeRun([{Args} ...])` takes an optional list of arguments.  If any
+`call cmake#Run([{Args} ...])` takes an optional list of arguments.  If any
 arguments are provided, they are cached and any following call with no
 arguments will re-use the cached arguments. To clear the cached arguments, use
-`call CMakeSetRunArguments('')`.
+`call cmake#SetRunArguments('')`.
 
-`call CMakeBuildRun([{Target}, [{Args} ...]])` calls `CMakeBuild` and
-`CMakeRun` with their respective arguments. If the build fails, this function
+`call cmake#BuildRun([{Target}, [{Args} ...]])` calls `cmake#Build` and
+`cmake#Run` with their respective arguments. If the build fails, this function
 will return the exit code of the `cmake --build` command. Otherwise run the
 executable and return it's exit code.
 
@@ -67,7 +67,7 @@ executable and return it's exit code.
 
 Options | Description
 --------|------------
-`g:cmake_generate_options` | A list of string arguments for the `CMakeGenerate` function
+`g:cmake_generate_options` | A list of string arguments for the `cmake#Generate` function
 
 ## Licence
 
