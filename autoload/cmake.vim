@@ -248,7 +248,7 @@ function! s:FindExeTargets(path, vars)
 
         " Check for commands which define variables or targets
         if l:command == 'project'
-            let l:vars['PROECT_NAME'] = l:args[0]
+            let l:vars['PROJECT_NAME'] = l:args[0]
 
         elseif l:command == 'set'
             " Multiple arguments, join with a space
