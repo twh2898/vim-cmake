@@ -398,6 +398,9 @@ function! cmake#Run(...)
 
     " Get the selected target name
     let l:targets = cmake#FindExecutableTargets()
+    if s:cmake_last_executable >= len(l:targets)
+        echoerr "Target is out of range. Run cmake#SelectExecutable"
+    endif
     let l:target = l:targets[s:cmake_last_executable]
 
     let l:cmds = ['cd build',
