@@ -19,6 +19,7 @@ and then restart Vim / Neovim and run `:PlugInstall`.
 - Build and Run
 - Select which executable to run
 - Set arguments to pass to the executable
+- Run tests
 - Cached selection and arguments between sessions
 
 ## Usage
@@ -32,18 +33,20 @@ Command                                  | Mapping
 `:CMakeSelectExecutable`                 | `call cmake#SelectExecutable()`               
 `:CMakeRun [{Args} ...]`                 | `call cmake#Run([{Args} ...])`                
 `:CMakeBuldRun [{Target}, [{Args} ...]]` | `call cmake#BuldRun([{Target}, [{Args} ...]])`
+`:CMakeTest [{Args} ...]`                | `call cmake#Test([{Args} ...])`
 `:CMakeClearArguments`                   | `call cmake#SetRunArguments('')`              
 `:CMakeConfig`                           | `e CMakeLists.txt`                           
 
 ### Functions
 
-Function                                      | Description
-----------------------------------------------|------------
+Function                                       | Description
+-----------------------------------------------|------------
 `call cmake#Generate([{Options} ...])`         | Generate the build directory
 `call cmake#Build([{Target}])`                 | Build the project
 `call cmake#SelectExecutable()`                | Select the executable target to run
 `call cmake#Run([{Args} ...])`                 | Run the selected executable
 `call cmake#BuldRun([{Target}, [{Args} ...]])` | Build and Run
+`call cmake#Test([{Args} ...])`                | Run tests
 `call cmake#SetRunArguments([{Args} ...])`     | Set or clear the cached arguments to Run
 
 `call cmake#Generate([{Options} ...])` takes an optional list of options for the
