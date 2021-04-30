@@ -413,6 +413,19 @@ function! cmake#Run(...)
     return v:shell_error
 endfunction
 
+function! cmake#Test(...)
+    " Wrapper for the `cmake --build build --target test` command.
+    "
+    " Parameter: options to pass to the cmake command
+    "
+    " Return: return status of the cmake command
+
+    " Check for options
+    let l:options = join(a:000, ' ')
+
+    exec '!cmake --build build --target test ' . l:options
+endfunction
+
 function! cmake#BuildRun(target, ...)
     " Call cmake#Build and on success call cmake#Run.
     "

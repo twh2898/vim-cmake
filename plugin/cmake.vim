@@ -9,6 +9,7 @@ command! -nargs=* CMakeGenerate call cmake#Generate(<f-args>)
 
 command! -nargs=? CMakeBuild call cmake#Build(<f-args>)
 command! -nargs=* CMakeRun call cmake#Run(<f-args>)
+command! -nargs=* CMakeTest call cmake#Test(<f-args>)
 command! -nargs=* CMakeBuildRun call cmake#BuildRun('', <f-args>)
 
 command! CMakeSelectExecutable call cmake#SelectExecutable()
