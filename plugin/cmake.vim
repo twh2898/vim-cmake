@@ -17,3 +17,4 @@ command! CMakeClearArguments call cmake#SetRunArguments('')
 
 command! CMakeConfig e CMakeLists.txt
 
+let g:loaded_cmake = 1
